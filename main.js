@@ -1,6 +1,8 @@
+//  variables
 let playerScore = 0;
 let computerScore = 0;
 
+// randomise computer choice
 const getComputerChoice = () => {
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = Math.floor(Math.random() * choices.length);
@@ -9,10 +11,12 @@ const getComputerChoice = () => {
 };
 
 const startGame = () => {
+  //repeat game 5 times
   for (let i = 0; i < 5; i++) {
     const playerSelection = "rock".toLowerCase();
     const computerSelection = getComputerChoice();
 
+    // logic
     const playRound = (player, computer) => {
       if (player === computer) {
         return "None";
@@ -31,9 +35,12 @@ const startGame = () => {
       }
     };
 
+    // keeps track of each game won by who
     const roundWinner = playRound(playerSelection, computerSelection);
     console.log(`Round ${i + 1}: ${roundWinner}`);
   }
+
+  //logs final winner + points
   console.log(
     `Final Score - Player: ${playerScore}, Computer: ${computerScore}`
   );
