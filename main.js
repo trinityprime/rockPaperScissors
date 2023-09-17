@@ -1,6 +1,7 @@
 //  variables
 let playerScore = 0;
 let computerScore = 0;
+let gameWinner = " ";
 
 // randomise computer choice
 const getComputerChoice = () => {
@@ -41,9 +42,16 @@ const startGame = () => {
   }
 
   //logs final winner + points
+  if (playerScore > computerScore) {
+    gameWinner = "Player";
+  } else {
+    gameWinner = "Computer";
+  }
+
   console.log(
     `Final Score - Player: ${playerScore}, Computer: ${computerScore}`
   );
+  console.log(`${gameWinner} wins!`);
 };
 
 startGame();
